@@ -176,10 +176,8 @@ pow_list : pow_list ARITHMETIC_POW value {
     $$ = $1;
 }
 
-matrix_elem : ID OPEN_M INT COMMA INT CLOSE_M {
+matrix_elem : ID OPEN_M add_list COMMA add_list CLOSE_M {
     get_matrix_elem($1.var_name, $3.val.Int64, $5.val.Int64, &$$);
-} | ID OPEN_M ID COMMA ID CLOSE_M {
-    get_id_matrix_elem($1.var_name, $3.var_name, $5.var_name, &$$);
 };
 
 vector_elem : ID OPEN_M INT CLOSE_M {
@@ -236,13 +234,13 @@ not : BOOL {
     do_bool_not($2, &$$);
 };
 
-bool_relational_list : value BOOL_HIGHER_THAN value {
+bool_relational_list : add_list BOOL_HIGHER_THAN add_list {
     do_bool_higher_than($1, $3, &$$);
-} | value BOOL_LOWER_THAN value {
+} | add_list BOOL_LOWER_THAN add_list {
     do_bool_lower_than($1, $3, &$$);
-} | value BOOL_HIGHER_EQUAL value {
+} | add_list BOOL_HIGHER_EQUAL add_list {
     do_bool_higher_equal($1, $3, &$$);
-} | value BOOL_LOWER_EQUAL value {
+} | add_list BOOL_LOWER_EQUAL add_list {
     do_bool_lower_equal($1, $3, &$$);
 };
 
