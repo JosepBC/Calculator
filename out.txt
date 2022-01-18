@@ -9,7 +9,16 @@ Int64Matrix mtx =
 10 20 
 20 40 
 Int64 elem = 10
+Int64 a = 1
 Int64 elem = 20
 Int64Vector v2 = 20 40 60 
 Bool e = true
 Bool ten = true
+Int64Vector vector2 = 20 40 60 
+Int64Vector vector3 = 100 400 900 
+Int64Matrix mtx2 = 
+10 20 
+20 40 
+String s = hola
+String s2 = holahola2
+Int64 p = 40
